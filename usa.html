@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Programming</title>
+    <style>
+        body {
+            background-color: #2e003e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .stars {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 1s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        button {
+            background-color: #4a148c;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        button:hover {
+            box-shadow: 0 0 20px 5px #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 1%, rgba(255,255,255,0) 20%);
+            opacity: 0;
+        }
+
+        body:hover::after {
+            animation: glow 1s infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="section active" id="section0">
+            <h1>Welcome to Learn Programming</h1>
+            <p>This website is designed to help beginners learn programming languages. You can choose between Python, JavaScript, C#, C++, CSS, Java, and HTML, and we'll guide you through the basics of each language. Follow the instructions and click "Next" to proceed through the sections. At the end, you'll be directed to official resources for further learning.</p>
+            <button onclick="nextSection('section1')">Start Learning</button>
+        </div>
+        <div class="section" id="section1">
+            <h1>Select Your Language</h1>
+            <p>Select the programming language you want to learn:</p>
+            <button onclick="selectLanguage('python')">Python</button>
+            <button onclick="selectLanguage('javascript')">JavaScript</button>
+            <button onclick="selectLanguage('csharp')">C#</button>
+            <button onclick="selectLanguage('cpp')">C++</button>
+            <button onclick="selectLanguage('css')">CSS</button>
+            <button onclick="selectLanguage('java')">Java</button>
+            <button onclick="selectLanguage('html')">HTML</button>
+        </div>
+        <div class="section" id="python1">
+            <h1>Welcome to Python</h1>
+            <p>Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.</p>
+            <button onclick="nextSection('python2')">Next</button>
+        </div>
+        <div class="section" id="python2">
+            <h1>Why Python?</h1>
+            <p>Python is easy to learn and has a clean syntax. It's great for web development, data analysis, artificial intelligence, and scientific computing.</p>
+            <button onclick="nextSection('python3')">Next</button>
+        </div>
+        <div class="section" id="python3">
+            <h1>Get Started with Python</h1>
+            <p>To get started with Python, download the latest version from the official website and follow the installation instructions.</p>
+            <button onclick="redirectToPython()">End</button>
+        </div>
+        <div class="section" id="javascript1">
+            <h1>Welcome to JavaScript</h1>
+            <p>JavaScript is a versatile programming language. It was created by Brendan Eich in 1995.</p>
+            <button onclick="nextSection('javascript2')">Next</button>
+        </div>
+        <div class="section" id="javascript2">
+            <h1>Why JavaScript?</h1>
+            <p>JavaScript is essential for creating interactive web pages. It's widely used in web development, and it runs in the browser, making it a key technology in modern web applications.</p>
+            <button onclick="nextSection('javascript3')">Next</button>
+        </div>
+        <div class="section" id="javascript3">
+            <h1>Get Started with JavaScript</h1>
+            <p>To get started with JavaScript, you can start writing scripts directly in the browser's developer tools or use online editors like CodePen.</p>
+            <button onclick="redirectToJavaScript()">End</button>
+        </div>
+        <div class="section" id="csharp1">
+            <h1>Welcome to C#</h1>
+            <p>C# is a modern, object-oriented programming language developed by Microsoft.</p>
+            <button onclick="nextSection('csharp2')">Next</button>
+        </div>
+        <div class="section" id="csharp2">
+            <h1>Why C#?</h1>
+            <p>C# is used for developing a wide range of applications, from web and mobile apps to games and enterprise software.</p>
+            <button onclick="nextSection('csharp3')">Next</button>
+        </div>
+        <div class="section" id="csharp3">
+            <h1>Get Started with C#</h1>
+            <p>To get started with C#, download Visual Studio and follow the setup instructions.</p>
+            <button onclick="redirectToCsharp()">End</button>
+        </div>
+        <div class="section" id="cpp1">
+            <h1>Welcome to C++</h1>
+            <p>C++ is a powerful, high-performance programming language.</p>
+            <button onclick="nextSection('cpp2')">Next</button>
+        </div>
+        <div class="section" id="cpp2">
+            <h1>Why C++?</h1>
+            <p>C++ is widely used in system/software development, game development, and real-time simulations.</p>
+            <button onclick="nextSection('cpp3')">Next</button>
+        </div>
+        <div class="section" id="cpp3">
+            <h1>Get Started with C++</h1>
+            <p>To get started with C++, download an IDE like Visual Studio or Code::Blocks and follow the setup instructions.</p>
+            <button onclick="redirectToCpp()">End</button>
+        </div>
+        <div class="section" id="css1">
+            <h1>Welcome to CSS</h1>
+            <p>CSS (Cascading Style Sheets) is used to style and layout web pages.</p>
+            <button onclick="nextSection('css2')">Next</button>
+        </div>
+        <div class="section" id="css2">
+            <h1>Why CSS?</h1>
+            <p>CSS is essential for creating visually appealing web pages and allows for responsive design.</p>
+            <button onclick="nextSection('css3')">Next</button>
+        </div>
+        <div class="section" id="css3">
+            <h1>Get Started with CSS</h1>
+            <p>To get started with CSS, you can use online editors like CodePen or start writing styles directly in your HTML files.</p>
+            <button onclick="redirectToCss()">End</button>
+        </div>
+        <div class="section" id="java1">
+            <h1>Welcome to Java</h1>
+            <p>Java is a versatile, object-oriented programming language developed by Sun Microsystems.</p>
+            <button onclick="nextSection('java2')">Next</button>
+        </div>
+        <div class="section" id="java2">
+            <h1>Why Java?</h1>
+            <p>Java is widely used for building enterprise-scale applications, Android apps, and web applications.</p>
+            <button onclick="nextSection('java3')">Next</button>
+        </div>
+        <div class="section" id="java3">
+            <h1>Get Started with Java</h1>
+            <p>To get started with Java, download the JDK (Java Development Kit) and an IDE like IntelliJ IDEA or Eclipse.</p>
+            <button onclick="redirectToJava()">End</button>
+        </div>
+        <div class="section" id="html1">
+            <h1>Welcome to HTML</h1>
+            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+            <button onclick="nextSection('html2')">Next</button>
+        </div>
+        <div class="section" id="html2">
+            <h1>Why HTML?</h1>
+            <p>HTML is the foundation of web development, allowing you to structure content on the web.</p>
+            <button onclick="nextSection('html3')">Next</button>
+        </div>
+        <div class="section" id="html3">
+            <h1>Get Started with HTML</h1>
+            <p>To get started with HTML, you can use any text editor or online editors like CodePen.</p>
+            <button onclick="redirectToHtml()">End</button>
+        </div>
+    </div>
+    <script>
+        function selectLanguage(language) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(language + '1').classList.add('active');
+        }
+
+        function nextSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function redirectToPython() {
+            window.location.href = "https://www.python.org";
+        }
+
+        function redirectToJavaScript() {
+            window.location.href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript";
+        }
+
+        function redirectToCsharp() {
+            window.location.href = "https://learn.microsoft.com/en-us/dotnet/csharp/";
+        }
+
+        function redirectToCpp() {
+            window.location.href = "https://isocpp.org/";
+        }
+
+        function redirectToCss() {
+            window.location.href = "https://developer.mozilla.org/en-US/docs/Web/CSS";
+        }
+
+        function redirectToJava() {
+            window.location.href = "https://www.oracle.com/java/";
+        }
+
+        function redirectToHtml() {
+            window.location.href = "https://developer.mozilla.org/en-US/docs/Web/HTML";
+        }
+    </script>
+</body>
+</html>
